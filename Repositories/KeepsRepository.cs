@@ -38,6 +38,23 @@ namespace Keepr.Repositories
       string sql = "SELECT * FROM Keeps WHERE id=@Id";
       return _db.QueryFirstOrDefault<Keep>(sql, new { id });
     }
+
+    internal void Delete(int id)
+    {
+      string sql = "DELETE FROM Keeps WHERE id = @Id";
+      _db.Execute(sql, new { id });
+    }
+
+    // internal void Edit(Keep update)
+    // {
+    //   string sql = @"UPATE Keeps SET
+    //   userId = @UserId,
+    //   name = @Name,
+    //   description = @description,
+    //   WHERE id = @Id;";
+
+    //   _db.Execute(sql, update);
+    // }
   }
 }
 

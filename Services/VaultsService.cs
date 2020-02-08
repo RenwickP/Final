@@ -6,25 +6,25 @@ using Keepr.Repositories;
 
 namespace Keepr.Services
 {
-  public class KeepsService
+  public class VaultsService
   {
-    private readonly KeepsRepository _repo;
-    public KeepsService(KeepsRepository repo)
+    private readonly VaultsRepository _repo;
+    public VaultsService(VaultsRepository repo)
     {
       _repo = repo;
     }
-    public IEnumerable<Keep> Get()
+    public IEnumerable<Vault> Get()
     {
       return _repo.Get();
     }
 
-    public Keep Create(Keep newKeep)
+    public Vault Create(Vault newVault)
     {
-      _repo.Create(newKeep);
-      return newKeep;
+      _repo.Create(newVault);
+      return newVault;
     }
 
-    internal Keep GetById(int id)
+    internal Vault GetById(int id)
     {
       var existenceTest = _repo.GetById(id);
       if (existenceTest == null) { throw new Exception("Bad Id"); }
@@ -38,16 +38,5 @@ namespace Keepr.Services
       _repo.Delete(id);
       return "Yay you deleted it";
     }
-
   }
 }
-
-
-
-    // internal Keep Edit(Keep update)
-    // {
-    //   var existenceTest = _repo.GetById(update.Id);
-    //   if (existenceTest == null) { throw new Exception("cant edit bad request or id"); }
-    //   _repo.Edit(update);
-    //   return update;
-    // }
