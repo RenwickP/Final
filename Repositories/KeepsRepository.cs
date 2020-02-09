@@ -50,7 +50,7 @@ namespace Keepr.Repositories
       string sql = @"UPDATE Keeps SET
       userId = @UserId,
       name = @Name,
-      description = @description,
+      description = @description
       WHERE id = @Id;";
 
       _db.Execute(sql, update);
