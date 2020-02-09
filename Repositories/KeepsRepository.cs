@@ -45,16 +45,16 @@ namespace Keepr.Repositories
       _db.Execute(sql, new { id });
     }
 
-    // internal void Edit(Keep update)
-    // {
-    //   string sql = @"UPATE Keeps SET
-    //   userId = @UserId,
-    //   name = @Name,
-    //   description = @description,
-    //   WHERE id = @Id;";
+    internal void Edit(Keep update)
+    {
+      string sql = @"UPDATE Keeps SET
+      userId = @UserId,
+      name = @Name,
+      description = @description,
+      WHERE id = @Id;";
 
-    //   _db.Execute(sql, update);
-    // }
+      _db.Execute(sql, update);
+    }
   }
 }
 

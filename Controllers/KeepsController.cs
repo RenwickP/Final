@@ -78,21 +78,21 @@ namespace Keepr.Controllers
       }
     }
 
-    // [HttpPut("{id}")]
+    [HttpPut("{id}")]
 
-    // public ActionResult<Keep> Edit([FromBody] Keep update, int id)
-    // {
-    //   try
-    //   {
-    //     update.Id = id;
-    //     return Ok(_ks.Edit(update));
-    //   }
-    //   catch (Exception e)
-    //   {
+    public ActionResult<Keep> Edit([FromBody] Keep update, int id)
+    {
+      try
+      {
+        update.Id = id;
+        return Ok(_ks.Edit(update));
+      }
+      catch (Exception e)
+      {
 
-    //     return BadRequest(e.Message);
-    //   }
-    // }
+        return BadRequest(e.Message);
+      }
+    }
 
   }
 }

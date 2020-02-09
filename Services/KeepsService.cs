@@ -39,15 +39,23 @@ namespace Keepr.Services
       return "Yay you deleted it";
     }
 
+
+    internal Keep Edit(Keep update)
+    {
+      var existenceTest = _repo.GetById(update.Id);
+      if (existenceTest == null) { throw new Exception("cant edit bad request or id"); }
+      _repo.Edit(update);
+      return update;
+    }
   }
 }
 
 
 
-    // internal Keep Edit(Keep update)
-    // {
-    //   var existenceTest = _repo.GetById(update.Id);
-    //   if (existenceTest == null) { throw new Exception("cant edit bad request or id"); }
-    //   _repo.Edit(update);
-    //   return update;
-    // }
+// internal Keep Edit(Keep update)
+// {
+//   var existenceTest = _repo.GetById(update.Id);
+//   if (existenceTest == null) { throw new Exception("cant edit bad request or id"); }
+//   _repo.Edit(update);
+//   return update;
+// }
