@@ -47,6 +47,12 @@ namespace Keepr.Services
       _repo.Edit(update);
       return update;
     }
+
+    //// new addition /////
+    internal IEnumerable<VaultKeep> GetByVkId(int id)
+    {
+      return _repo.GetKeepByVkId(id);
+    }
   }
 }
 
