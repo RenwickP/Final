@@ -36,7 +36,7 @@ namespace Keepr.Repositories
 
     internal VaultKeep GetById(int id)
     {
-      string sql = "SELECT * FROM vaultkeeps WHERE id=@Id";
+      string sql = "SELECT * FROM vaultkeeps WHERE id = @Id";
       return _db.QueryFirstOrDefault<VaultKeep>(sql, new { id });
     }
 
