@@ -80,19 +80,19 @@ namespace Vaults.Controllers
       };
     }
     ///////////////////////////////////////////////////////////// extra super awsome test time routes///////////////////////
-    [HttpGet("{id}/vaultkeeps")]
-    public ActionResult<IEnumerable<VaultKeep>> GetVks(int id)
-    {
-      try
-      {
-        return Ok(_vks.GetByVaultID(id));
-      }
-      catch (Exception e)
-      {
+    // [HttpGet("{id}/vaultkeeps")]
+    // public ActionResult<IEnumerable<VaultKeep>> GetVks(int id)
+    // {
+    //   try
+    //   {
+    //     return Ok(_vks.GetByVaultID(id));
+    //   }
+    //   catch (Exception e)
+    //   {
 
-        return BadRequest(e.Message);
-      }
-    }
+    //     return BadRequest(e.Message);
+    //   }
+    // }
 
   }
 }

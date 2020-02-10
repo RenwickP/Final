@@ -76,27 +76,27 @@ namespace Vaults.Controllers
     }
     /////// test stuff/////
 
-    public ActionResult<IEnumerable<VaultKeep>> Get()
-    {
-      try
-      {
-        return Ok(_vks.Get());
-      }
-      catch (Exception e)
-      {
-        return BadRequest(e.Message);
-      };
-    }
+    // public ActionResult<IEnumerable<VaultKeep>> Get()
+    // {
+    //   try
+    //   {
+    //     return Ok(_vks.Get());
+    //   }
+    //   catch (Exception e)
+    //   {
+    //     return BadRequest(e.Message);
+    //   };
+    // }
 
     ///// new addition ////
 
-    [HttpGet("{id}/keeps")]
+    [HttpGet("{id}/vaults")]
 
-    public ActionResult<IEnumerable<Keep>> GetKeeps(int id)
+    public ActionResult<IEnumerable<Keep>> GetVaults(int id)
     {
       try
       {
-        return Ok(_ks.GetByVkId(id));
+        return Ok(_vks.GetByVkId(id));
       }
       catch (Exception e)
       {
@@ -104,7 +104,6 @@ namespace Vaults.Controllers
         return BadRequest(e.Message);
       }
     }
-
 
 
 

@@ -47,11 +47,14 @@ namespace Keepr.Services
       return _repo.Get();
     }
     /////////////////////////////////////////////////////////// supers awsome test time(vault keeps by vault it)/////////
-    internal IEnumerable<VaultKeep> GetByVaultID(int id)
+    // internal IEnumerable<VaultKeep> GetByVaultID(int id)
+    // {
+    //   return _repo.GetVKSbyVaultId(id);
+    // }
+
+    internal IEnumerable<VaultKeep> GetByVkId(int id)
     {
       return _repo.GetVKSbyVaultId(id);
     }
-
-
   }
 }
