@@ -27,7 +27,9 @@ namespace Vaults.Controllers
     {
       try
       {
-        return Ok(_vs.Get());
+        var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+        return Ok(_vs.GetbyUserId(userId));
       }
       catch (Exception e)
       {

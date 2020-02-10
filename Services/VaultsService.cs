@@ -13,10 +13,10 @@ namespace Keepr.Services
     {
       _repo = repo;
     }
-    public IEnumerable<Vault> Get()
-    {
-      return _repo.Get();
-    }
+    // public IEnumerable<Vault> Get()
+    // {
+    //   return _repo.Get();
+    // }
 
     public Vault Create(Vault newVault)
     {
@@ -38,5 +38,15 @@ namespace Keepr.Services
       _repo.Delete(id);
       return "Yay you deleted it";
     }
+
+    public IEnumerable<Vault> GetbyUserId(string userId)
+    {
+      return _repo.GetByUserId(userId);
+    }
   }
 }
+
+// public IEnumerable<Vault> Get()
+// {
+//   return _repo.Get();
+// }
