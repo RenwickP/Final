@@ -16,12 +16,12 @@ namespace Keepr.Services
 
 
     // public VaultKeep Create(VaultKeep newVaultKeep)
-    public VaultKeep Create(VaultKeep newVaultKeep)
+    public void Create(VaultKeep newVaultKeep)
     {
       VaultKeep existenceTest = _repo.Find(newVaultKeep);
-      if (existenceTest != null) { throw new Exception("relationship object already exists"); }
+      if (existenceTest != null) { return; }
       _repo.Create(newVaultKeep);
-      return newVaultKeep;
+      // return newVaultKeep;
     }
 
 
@@ -52,9 +52,11 @@ namespace Keepr.Services
     //   return _repo.GetVKSbyVaultId(id);
     // }
 
-    internal IEnumerable<VaultKeep> GetByVkId(int id)
+    internal VaultKeep GetByVkId(int id)
     {
-      return _repo.GetVKSbyVaultId(id);
+      var test = _repo.GetVKSbyVaultId(id);
+      if (test == null) { throw new Exception("bad id"); }
+      return test;
     }
   }
 }

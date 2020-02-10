@@ -43,15 +43,16 @@ namespace Vaults.Controllers
 
     [HttpPost]
     [Authorize]
-    public ActionResult<VaultKeep> Create([FromBody] VaultKeep newVaultKeep)
+    public ActionResult<string> Create([FromBody] VaultKeep newVaultKeep)
     {
       try
       {
         var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
         newVaultKeep.UserId = userId;
-        System.Console.WriteLine("test info", newVaultKeep);
+        // System.Console.WriteLine("test info", newVaultKeep);
         // return Ok("relationship created");
-        return Ok(_vks.Create(newVaultKeep));
+        _vks.Create(newVaultKeep);
+        return Ok("Success");
       }
       catch (Exception e)
       {
@@ -62,7 +63,7 @@ namespace Vaults.Controllers
 
     [HttpDelete("{id}")]
 
-    public ActionResult<String> Delete(int id)
+    public ActionResult<string> Delete(int id)
     {
       try
       {
@@ -92,7 +93,7 @@ namespace Vaults.Controllers
 
     [HttpGet("{id}/vaults")]
 
-    public ActionResult<IEnumerable<Keep>> GetVaults(int id)
+    public ActionResult<string> GetVaults(int id)
     {
       try
       {
