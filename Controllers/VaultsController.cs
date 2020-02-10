@@ -16,9 +16,11 @@ namespace Vaults.Controllers
   public class VaultsController : ControllerBase
   {
     private readonly VaultsService _vs;
-    public VaultsController(VaultsService vs)
+    private readonly VaultKeepsService _vks;
+    public VaultsController(VaultsService vs, VaultKeepsService vks)
     {
       _vs = vs;
+      _vks = vks;
     }
     [HttpGet]
     public ActionResult<IEnumerable<Vault>> Get()
@@ -77,5 +79,20 @@ namespace Vaults.Controllers
         return BadRequest(e.Message);
       };
     }
+    ///////////////////////////////////////////////////////////// extra super awsome test time routes///////////////////////
+    [HttpGet("{id}/vaultkeeps")]
+    public ActionResult<IEnumerable<VaultKeep>> GetVks(int id)
+    {
+      try
+      {
+        return Ok(_vks.GetByVaultID(id));
+      }
+      catch (Exception e)
+      {
+
+        return BadRequest(e.Message);
+      }
+    }
+
   }
 }
