@@ -1,7 +1,8 @@
 <template>
   <div class="dashboard">
-    <h1>WELCOME TO THE DASHBOARD</h1>
+    <h1 class="text">WELCOME TO THE DASHBOARD</h1>
     public {{ publicKeeps }} user {{ userKeeps }}
+    <div><input type="text" /></div>
   </div>
 </template>
 
@@ -12,4 +13,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.text {
+  text-align: Center;
+  color: green;
+}
+</style>

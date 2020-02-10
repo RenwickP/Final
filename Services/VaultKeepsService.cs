@@ -16,12 +16,12 @@ namespace Keepr.Services
 
 
     // public VaultKeep Create(VaultKeep newVaultKeep)
-    internal void Create(VaultKeep newVaultKeep)
+    public VaultKeep Create(VaultKeep newVaultKeep)
     {
       VaultKeep existenceTest = _repo.Find(newVaultKeep);
       if (existenceTest != null) { throw new Exception("relationship object already exists"); }
       _repo.Create(newVaultKeep);
-      // return newVaultKeep;
+      return newVaultKeep;
     }
 
 

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Welcome Home</h1>
+    <h1 class="text">Welcome Home</h1>
   </div>
 </template>
 
@@ -19,3 +19,10 @@ export default {
   }
 };
 </script>
+
+<style>
+.text {
+  text-align: Center;
+  color: green;
+}
+</style>

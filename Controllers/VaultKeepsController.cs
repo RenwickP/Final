@@ -49,7 +49,9 @@ namespace Vaults.Controllers
       {
         var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
         newVaultKeep.UserId = userId;
-        return Ok("relationship created");
+        System.Console.WriteLine("test info", newVaultKeep);
+        // return Ok("relationship created");
+        return Ok(_vks.Create(newVaultKeep));
       }
       catch (Exception e)
       {
