@@ -16,22 +16,23 @@ namespace Keepr.Services
 
 
     // public VaultKeep Create(VaultKeep newVaultKeep)
-    // public VaultKeep Create(VaultKeep newVaultKeep)
-    // {
-    //   VaultKeep existenceTest = _repo.Find(newVaultKeep);
-    //   if (existenceTest != null) {return existenceTest;}
-    //   // { throw new Exception("already ready created, vaultkeep service creator"); }
-    //   // { return; }
-    //   _repo.Create(newVaultKeep);
-    //   return newVaultKeep;
-    // }
-
-    internal void Create(VaultKeep newVaultKeep)
+    public VaultKeep Create(VaultKeep newVaultKeep)
     {
-      VaultKeep exists = _repo.Find(newVaultKeep);
-      if (exists != null) { return; }
+      VaultKeep existenceTest = _repo.Find(newVaultKeep);
+      if (existenceTest != null) { throw new Exception("already ready created, vaultkeep service creator"); }
+      //  {return existenceTest;}
+      // { throw new Exception("already ready created, vaultkeep service creator"); }
+      // { return; }
       _repo.Create(newVaultKeep);
+      return newVaultKeep;
     }
+
+    // internal void Create(VaultKeep newVaultKeep)
+    // {
+    //   VaultKeep exists = _repo.Find(newVaultKeep);
+    //   if (exists != null) { return; }
+    //   _repo.Create(newVaultKeep);
+    // }
 
 
 

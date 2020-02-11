@@ -53,10 +53,10 @@ namespace Vaults.Controllers
         // return Ok("relationship created");
 
         //changed with void//
-        // return Ok(_vks.Create(newVaultKeep));
-        _vks.Create(newVaultKeep);
+        return Ok(_vks.Create(newVaultKeep));
+        // _vks.Create(newVaultKeep);
 
-        return Ok("Success");
+        // return Ok("Success");
         // return (newVaultKeep);
       }
       catch (Exception e)
