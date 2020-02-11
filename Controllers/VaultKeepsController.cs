@@ -51,8 +51,9 @@ namespace Vaults.Controllers
         newVaultKeep.UserId = userId;
         // System.Console.WriteLine("test info", newVaultKeep);
         // return Ok("relationship created");
-        _vks.Create(newVaultKeep);
-        return Ok("Success");
+        return Ok(_vks.Create(newVaultKeep));
+        // return Ok("Success");
+        // return (newVaultKeep);
       }
       catch (Exception e)
       {
@@ -91,13 +92,15 @@ namespace Vaults.Controllers
 
     ///// new addition ////
 
-    [HttpGet("{id}/vaults")]
+    [HttpGet("{VaultId}/keeps")]
 
-    public ActionResult<string> GetVaults(int id)
+    public ActionResult<VaultKeep> GetVaults(int vaultId)
+    // public ActionResult<IEnumerable<VaultKeep>> GetVaults(int vaultId)
     {
       try
       {
-        return Ok(_vks.GetByVkId(id));
+        var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+        return Ok(_vks.GetByVkId(vaultId, userId));
       }
       catch (Exception e)
       {
@@ -106,7 +109,19 @@ namespace Vaults.Controllers
       }
     }
 
+    // public ActionResult<IEnumerable<VaultKeep>> GetVaults(int vaultId)
+    // {
+    //   try
+    //   {
+    //     var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+    //     return Ok(_vks.GetByVkId(vaultId, userId));
+    //   }
+    //   catch (Exception e)
+    //   {
 
+    //     return BadRequest(e.Message);
+    //   }
+    // }
 
   }
 }

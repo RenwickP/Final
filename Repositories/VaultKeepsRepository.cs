@@ -56,13 +56,25 @@ namespace Keepr.Repositories
 
     //////////////////// super awsome best friend test... vaultkeeps by vault it///////
 
-    internal VaultKeep GetVKSbyVaultId(int id)
+    internal IEnumerable<VaultKeep> GetVKSbyVaultId(int vaultId, string userId)
     {
       string sql = @"SELECT k.* FROM vaultkeeps vk
 INNER JOIN keeps k ON k.id = vk.keepId 
 WHERE (vaultId = @vaultId AND vk.userId = @userId);";
-      return _db.QueryFirstOrDefault<VaultKeep>(sql, new { id });
+
+
+      return _db.Query<VaultKeep>(sql, new { vaultId, userId });
     }
+
+
+
+    //        internal IEnumerable<VaultKeep> GetVKSbyVaultId(int id)
+    //     {
+    //       string sql = @"SELECT k.* FROM vaultkeeps vk
+    // INNER JOIN keeps k ON k.id = vk.keepId 
+    // WHERE (vaultId = @vaultId AND vk.userId = @userId);";
+    //       return _db.Query<VaultKeep>(sql, new { id });
+    //     }
   }
 }
 

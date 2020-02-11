@@ -87,7 +87,7 @@ namespace Vaults.Controllers
     // {
     //   try
     //   {
-    //     return Ok(_vks.GetByVaultID(id));
+    //     return Ok(_vks.GetByVkId(id));
     //   }
     //   catch (Exception e)
     //   {
