@@ -51,8 +51,12 @@ namespace Vaults.Controllers
         newVaultKeep.UserId = userId;
         // System.Console.WriteLine("test info", newVaultKeep);
         // return Ok("relationship created");
-        return Ok(_vks.Create(newVaultKeep));
-        // return Ok("Success");
+
+        //changed with void//
+        // return Ok(_vks.Create(newVaultKeep));
+        _vks.Create(newVaultKeep);
+
+        return Ok("Success");
         // return (newVaultKeep);
       }
       catch (Exception e)
@@ -62,13 +66,13 @@ namespace Vaults.Controllers
     }
 
 
-    [HttpDelete("{vaultId}/keeps")]
+    [HttpDelete("{vaultId}/keeps/{keepId}")]
 
-    public ActionResult<string> Delete(int id)
+    public ActionResult<string> Delete(int vaultId, int keepId)
     {
       try
       {
-        return Ok(_vks.Delete(id));
+        return Ok(_vks.Delete(vaultId, keepId));
       }
       catch (Exception e)
       {

@@ -40,10 +40,10 @@ namespace Keepr.Repositories
       return _db.QueryFirstOrDefault<VaultKeep>(sql, new { id });
     }
 
-    internal void Delete(int id)
+    internal void Delete(int vaultId, int keepId)
     {
-      string sql = "DELETE FROM vaultkeeps WHERE id = @Id";
-      _db.Execute(sql, new { id });
+      string sql = "DELETE FROM vaultkeeps WHERE( vaultId = @vaultId AND keepId = @KeepID)";
+      _db.Execute(sql, new { vaultId, keepId });
     }
 
     ////// test //////
