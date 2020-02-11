@@ -62,7 +62,7 @@ namespace Vaults.Controllers
     }
 
 
-    [HttpDelete("{id}")]
+    [HttpDelete("{vaultId}/keeps")]
 
     public ActionResult<string> Delete(int id)
     {
@@ -94,7 +94,7 @@ namespace Vaults.Controllers
 
     [HttpGet("{VaultId}/keeps")]
 
-    public ActionResult<VaultKeep> GetVaults(int vaultId)
+    public ActionResult<Keep> GetVaults(int vaultId)
     // public ActionResult<IEnumerable<VaultKeep>> GetVaults(int vaultId)
     {
       try

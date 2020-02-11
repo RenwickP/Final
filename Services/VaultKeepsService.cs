@@ -53,7 +53,7 @@ namespace Keepr.Services
     //   return _repo.GetVKSbyVaultId(id);
     // }
 
-    public IEnumerable<VaultKeep> GetByVkId(int vaultId, string userId)
+    public IEnumerable<Keep> GetByVkId(int vaultId, string userId)
     {
       var test = _repo.GetVKSbyVaultId(vaultId, userId);
       if (test == null) { throw new Exception("bad id"); }
