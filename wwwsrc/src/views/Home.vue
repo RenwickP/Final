@@ -1,6 +1,13 @@
 <template>
   <div class="home">
-    <h1 class="text">Welcome Home</h1>
+    <h1 class="text">Welcome Home Friend</h1>
+    <div
+      class="text-color"
+      v-for="publickeep in publicKeeps"
+      :key="publickeep.id"
+    >
+      {{ publickeep.name }}
+    </div>
   </div>
 </template>
 
@@ -13,6 +20,9 @@ export default {
   computed: {
     user() {
       return this.$store.state.user;
+    },
+    publicKeeps() {
+      return this.$store.state.publicKeeps;
     }
   },
   methods: {

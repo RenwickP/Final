@@ -8,8 +8,14 @@
 
 <script>
 export default {
-  mounted() {},
-  computed: {}
+  mounted() {
+    this.$store.dispatch("getKeeps");
+  },
+  computed: {
+    publicKeeps() {
+      return this.$store.state.publicKeeps;
+    }
+  }
 };
 </script>
 
