@@ -31,11 +31,11 @@ namespace Keepr.Services
       return existenceTest;
     }
 
-    internal object Delete(int id)
+    internal object Delete(int id, string userId)
     {
       var existenceTest = _repo.GetById(id);
       if (existenceTest == null) { throw new Exception("Bad request or Id"); }
-      _repo.Delete(id);
+      _repo.Delete(id, userId);
       return "Yay you deleted it";
     }
 

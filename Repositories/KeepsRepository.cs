@@ -47,11 +47,14 @@ namespace Keepr.Repositories
       return _db.QueryFirstOrDefault<Keep>(sql, new { id });
     }
 
-    internal void Delete(int id)
+    internal void Delete(int id, string userId)
     {
-      string sql = "DELETE FROM Keeps WHERE id = @Id";
-      _db.Execute(sql, new { id });
+      string sql = "DELETE FROM Keeps WHERE( id = @Id AND userId =@UserId)";
+      _db.Execute(sql, new { id, userId });
     }
+
+    ///// was where id = @Id
+
 
     internal void Edit(Keep update)
     {
