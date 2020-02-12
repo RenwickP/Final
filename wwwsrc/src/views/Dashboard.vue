@@ -5,7 +5,7 @@
     <h3>Check Out Your Vaults!</h3>
     <div>
       <div v-for="vault in vaults" :key="vault.id">
-        <router-link :to="{ name: 'vaults', params: { id: vault.id } }">
+        <router-link :to="{ name: 'newvault', params: { id: vault.id } }">
           {{ vault.id }}
         </router-link>
         <button @click="getVk(vault.id)">getStuff</button>

@@ -11,7 +11,9 @@
       {{ publickeep.id }}
       <button>Views:{{ publickeep.Views }}</button>
       <button>Shares:{{ publickeep.Shares }}</button>
-      <button>Keeps{{ publickeep.Keeps }}</button>
+      <router-link :to="{ name: 'keep', params: { id: publickeep.id } }">
+        Keep
+      </router-link>
     </div>
     <h3>Hey Look Its Create Time</h3>
     <div>
@@ -64,6 +66,9 @@ export default {
     },
     publicKeeps() {
       return this.$store.state.publicKeeps;
+    },
+    vaults() {
+      return this.$store.state.vaults;
     }
   },
   methods: {
