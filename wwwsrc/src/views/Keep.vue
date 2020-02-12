@@ -4,8 +4,13 @@
     <p>{{ keep.name }}</p>
 
     <h2>Test Data</h2>
-    <div v-for="vault in vaults" :key="vault.id">{{ vault.id }}</div>
-    {{ vaults }}
+    <div v-for="vault in vaults" :key="vault.id">
+      <button @click="addKeep(vault.id)">
+        Add Keep to a vault!{{ vault.name }}
+      </button>
+
+      {{ vault }}
+    </div>
   </div>
 </template>
 <script>
