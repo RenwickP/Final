@@ -9,13 +9,25 @@
       {{ publickeep.name }}
       <button @click="deleteKeepz(publickeep.id)">Delete</button>
       {{ publickeep.id }}
+      <button>Views:{{ publickeep.Views }}</button>
+      <button>Shares:{{ publickeep.Shares }}</button>
+      <button>Keeps{{ publickeep.Keeps }}</button>
     </div>
     <h3>Hey Look Its Create Time</h3>
     <div>
       <form @submit.prevent="makeKeep">
         <input type="text" v-model="newKeep.name" placeholder="Name" />
         <input type="text" v-model="newKeep.img" placeholder="Image Url" />
-        // <input type="text" v-model="newKeep.private" placeholder="Private" />
+
+        <input
+          type="checkbox"
+          v-model="newKeep.IsPrivate"
+          name=""
+          id=""
+          checked
+          autocomplete="off"
+        />
+
         <input
           type="text"
           v-model="newKeep.description"
@@ -28,6 +40,8 @@
 </template>
 <script>
 //  <input type="text" v-model="newKeep." placeholder="" />
+// <div class="btn-group" data-toggle="buttons">
+//           <label class="btn btn-primary active"
 
 export default {
   name: "home",
@@ -36,8 +50,8 @@ export default {
       newKeep: {
         name: "",
         img: "",
-        description: ""
-        // private: ""
+        description: "",
+        IsPrivate: Boolean
       }
     };
   },
@@ -66,8 +80,8 @@ export default {
       this.newKeep = {
         name: "",
         img: "",
-        description: ""
-        // private: ""
+        description: "",
+        IsPrivate: Boolean
       };
     }
   }

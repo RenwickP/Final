@@ -17,11 +17,16 @@ let api = Axios.create({
 
 export default new Vuex.Store({
   state: {
-    publicKeeps: []
+    publicKeeps: [],
+    vaults: [],
+    activeVaults: {}
   },
   mutations: {
     setKeeps(state, data) {
       state.publicKeeps = data;
+    },
+    setVaults(state, data) {
+      state.vaults = data;
     }
   },
   actions: {
@@ -47,6 +52,17 @@ export default new Vuex.Store({
     async makeKeep({ commit, dispatch }, keep) {
       let res = await api.post("keeps", keep);
       dispatch("getKeeps");
+    },
+
+    async getVaults({ commit, dispatch }) {
+      let res = await api.get("vaults");
+      console.log("Vaults from store", res.data);
+      commit("setVaults", res.data);
+    },
+
+    async getVaultKeepByVaultId({ commit, dispatch }, VaultId) {
+      let res = await api.get("vaultkeeps/" + VaultId + "/keeps");
+      console.log("vk by Id from store", res.data);
     }
   }
 });
