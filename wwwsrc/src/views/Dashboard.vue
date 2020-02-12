@@ -7,13 +7,32 @@
     <div>
       <div v-for="vault in vaults" :key="vault.id">
         {{ vault.id }}<button @click="getVk(vault.id)">getStuff</button>
+        <button @click="deleteVault(vault.id)">Delete</button>
       </div>
+
+      <form @submit.prevent="makeVault">
+        <input type="text" v-model="newVault.name" placeholder="Name" />
+        <input
+          type="text"
+          v-model="newVault.description"
+          placeholder="Description"
+        />
+        <button>Create Vault</button>
+      </form>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      newVault: {
+        name: "",
+        description: ""
+      }
+    };
+  },
   mounted() {
     this.$store.dispatch("getKeeps");
     this.$store.dispatch("getVaults");
@@ -29,9 +48,30 @@ export default {
   methods: {
     getVk(id) {
       this.$store.dispatch("getVaultKeepByVaultId", id);
+    },
+    makeVault() {
+      let vault = { ...this.newVault };
+      this.$store.dispatch("makeVault", vault);
+      this.newVault = {
+        name: "",
+        description: ""
+      };
+    },
+    deleteVault(id) {
+      this.$store.dispatch("deleteVault", id);
     }
   }
 };
+
+//  <form @submit.prevent="makeVault">
+//     <input type="text" v-model="newVault.name" placeholder="Name" />
+//     <input
+//       type="text"
+//       v-model="newVault.description"
+//       placeholder="Description"
+//     />
+//     <button>Create Vault</button>
+//   </form>
 </script>
 
 <style>
