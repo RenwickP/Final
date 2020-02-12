@@ -40,10 +40,10 @@ namespace Keepr.Repositories
       return _db.QueryFirstOrDefault<VaultKeep>(sql, new { id });
     }
 
-    internal void Delete(int vaultId, int keepId)
+    internal void Delete(int vaultId, int keepId, string userId)
     {
-      string sql = "DELETE FROM vaultkeeps WHERE( vaultId = @vaultId AND keepId = @KeepID)";
-      _db.Execute(sql, new { vaultId, keepId });
+      string sql = "DELETE FROM vaultkeeps WHERE( vaultId = @vaultId AND keepId = @KeepID AND userId = @UserId)";
+      _db.Execute(sql, new { vaultId, keepId, userId });
     }
 
     ////// test //////
@@ -52,6 +52,19 @@ namespace Keepr.Repositories
       string sql = "SELECT * FROM VaultKeeps";
       return _db.Query<VaultKeep>(sql);
     }
+
+    // internal VaultKeep findByvaultIdandKeep(int vaultId, int keepId)
+    // {
+    //   string sql = "SELECT * FROM vaultkeeps WHERE( vaultId = @vaultId AND keepId = @KeepID)";
+    //   return _db.Query<VaultKeep>(sql new {vaultId, keepId});
+    // }
+
+
+
+
+
+
+
 
 
     //////////////////// super awsome best friend test... vaultkeeps by vault it///////

@@ -50,11 +50,11 @@ namespace Keepr.Services
       return existenceTest;
     }
 
-    internal object Delete(int vaultId, int keepId)
+    internal object Delete(int vaultId, int keepId, string userId)
     {
-      // var existenceTest = _repo.GetById(vaultId);
-      // if (existenceTest == null) { throw new Exception("Bad request or Id"); }
-      _repo.Delete(vaultId, keepId);
+      // var existenceTest = _repo.Find(vaultId, keepId);
+      // if (existenceTest.userId == userId) { throw new Exception("Bad request or Id"); }
+      _repo.Delete(vaultId, keepId, userId);
       return "Yay you deleted it";
     }
     ///////////// test///////////

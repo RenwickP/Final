@@ -42,7 +42,7 @@ namespace Vaults.Controllers
     }
 
     [HttpPost]
-    [Authorize]
+
     public ActionResult<string> Create([FromBody] VaultKeep newVaultKeep)
     {
       try
@@ -72,7 +72,9 @@ namespace Vaults.Controllers
     {
       try
       {
-        return Ok(_vks.Delete(vaultId, keepId));
+        var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+        return Ok(_vks.Delete(vaultId, keepId, userId));
       }
       catch (Exception e)
       {

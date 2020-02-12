@@ -23,6 +23,7 @@ namespace Vaults.Controllers
       _vks = vks;
     }
     [HttpGet]
+    [Authorize]
     public ActionResult<IEnumerable<Vault>> Get()
     {
       try
@@ -38,6 +39,7 @@ namespace Vaults.Controllers
     }
 
     [HttpGet("{id}")]
+    [Authorize]
     public ActionResult<Vault> Get(int id)
     {
       try
@@ -68,6 +70,7 @@ namespace Vaults.Controllers
     }
 
     [HttpDelete("{id}")]
+    [Authorize]
 
     public ActionResult<String> Delete(int id)
     {

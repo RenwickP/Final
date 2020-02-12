@@ -21,6 +21,7 @@ namespace Keepr.Controllers
       _ks = ks;
     }
     [HttpGet]
+
     public ActionResult<IEnumerable<Keep>> Get()
     {
       try
@@ -34,6 +35,7 @@ namespace Keepr.Controllers
     }
 
     [HttpGet("{id}")]
+
     public ActionResult<Keep> Get(int id)
     {
       try
@@ -64,7 +66,7 @@ namespace Keepr.Controllers
     }
 
     [HttpDelete("{id}")]
-
+    [Authorize]
     public ActionResult<String> Delete(int id)
     {
       try
@@ -79,6 +81,7 @@ namespace Keepr.Controllers
     }
 
     [HttpPut("{id}")]
+    [Authorize]
 
     public ActionResult<Keep> Edit([FromBody] Keep update, int id)
     {
