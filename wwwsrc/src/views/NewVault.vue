@@ -5,7 +5,11 @@
 </template>
 <script>
 export default {
-  name: "newvault"
+  name: "newvault",
+
+  mounted() {
+    this.$store.dispatch("getVaultKeepByVaultId", this.$route.params.id);
+  }
 };
 </script>
 <style></style>
