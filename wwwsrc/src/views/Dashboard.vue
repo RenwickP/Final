@@ -1,8 +1,8 @@
 <template>
   <div class="dashboard">
     <h1 class="text">WELCOME TO THE DASHBOARD</h1>
-    public {{ publicKeeps }} user {{ userKeeps }}
-    <div><input type="text" /></div>
+    {{ publicKeeps }}
+
     <h3>Check Out Your Vaults!</h3>
     <div>
       <div v-for="vault in vaults" :key="vault.id">
