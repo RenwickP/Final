@@ -36,6 +36,17 @@ export default new Vuex.Store({
       let res = await api.get("keeps");
       console.log("from store", res);
       commit("setKeeps", res.data);
+    },
+    async deleteKeep({ commit, dispatch }, id) {
+      console.log("hey look at me you triggered me");
+      let res = await api.delete("keeps/" + id);
+      console.log("from delete", id);
+      dispatch("getKeeps");
+      console.log("reading stuff", res.data);
+    },
+    async makeKeep({ commit, dispatch }, keep) {
+      let res = await api.post("keeps", keep);
+      dispatch("getKeeps");
     }
   }
 });
