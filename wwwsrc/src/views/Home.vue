@@ -7,6 +7,9 @@
 <script>
 export default {
   name: "home",
+  mounted() {
+    this.$store.dispatch("getKeeps");
+  },
   computed: {
     user() {
       return this.$store.state.user;
