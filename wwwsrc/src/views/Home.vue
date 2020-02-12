@@ -6,6 +6,15 @@
       v-for="publickeep in publicKeeps"
       :key="publickeep.id"
     >
+      <div class="card" style="width: 18rem;">
+        <img :src="publickeep.img" />
+        <div class="card-body">
+          <h5 {{ publickeep.name }}</h5>
+          <p class="card-text">{{ publickeep.description }}</p>
+          <a href="#" class="btn btn-primary">random txt</a>
+        </div>
+      </div>
+
       {{ publickeep.name }}
       <button @click="deleteKeepz(publickeep.id)">Delete</button>
       {{ publickeep.id }}
