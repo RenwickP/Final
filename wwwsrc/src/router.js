@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 // @ts-ignore
 import Home from "./views/Home.vue";
+import Vaults from "./views/Vaults.vue";
 // @ts-ignore
 import Dashboard from "./views/Dashboard.vue";
 import { authGuard } from "@bcwdev/auth0-vue";
@@ -20,6 +21,12 @@ export default new Router({
       name: "dashboard",
       component: Dashboard,
       beforeEnter: authGuard
+    },
+
+    {
+      path: "/vaults/:id",
+      name: "vaults",
+      component: Vaults
     }
   ]
 });

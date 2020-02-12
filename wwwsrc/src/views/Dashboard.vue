@@ -6,7 +6,11 @@
     <h3>Check Out Your Vaults!</h3>
     <div>
       <div v-for="vault in vaults" :key="vault.id">
-        {{ vault.id }}<button @click="getVk(vault.id)">getStuff</button>
+        <router-link :to="{ name: 'vaults', params: { id: vault.id } }">
+          {{ vault.id }}
+        </router-link>
+        <button @click="getVk(vault.id)">getStuff</button>
+
         <button @click="deleteVault(vault.id)">Delete</button>
       </div>
 
@@ -62,6 +66,7 @@ export default {
     }
   }
 };
+// <router-link :to="{name: 'vaults' , params: {id: vault.id} }">
 
 //  <form @submit.prevent="makeVault">
 //     <input type="text" v-model="newVault.name" placeholder="Name" />
