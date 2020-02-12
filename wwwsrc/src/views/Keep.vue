@@ -1,6 +1,7 @@
 <template>
   <div class="keep">
     <h1>Check out this keep</h1>
+    <p>{{ keep.name }}</p>
   </div>
 </template>
 <script>

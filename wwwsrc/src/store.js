@@ -20,7 +20,8 @@ export default new Vuex.Store({
     publicKeeps: [],
     vaults: [],
     activeVaults: {},
-    activeVaultKeeps: []
+    activeVaultKeeps: [],
+    activeKeep: {}
   },
   mutations: {
     setKeeps(state, data) {
@@ -34,6 +35,9 @@ export default new Vuex.Store({
     },
     activeVaultKeeps(state, data) {
       state.activeVaultKeeps = data;
+    },
+    setActiveKeep(state, data) {
+      state.activeKeep = data;
     }
   },
   actions: {
