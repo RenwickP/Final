@@ -3,14 +3,15 @@
     <h1>Hello to new vaults</h1>
     <div v-for="keep in keeps" :key="keep.id">
       {{ keep.name }}
-      <button @click="deleteKeep(keep.id)">
-        Delete Keep
-      </button>
+
+      <img :src="keep.img" />
+      <button @click="deleteKeep(keep.id)">Delete Keep</button>
     </div>
   </div>
 </template>
 <script>
 export default {
+  //  <img :src="mars.img_src" />
   name: "newvault",
 
   mounted() {
