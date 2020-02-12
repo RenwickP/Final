@@ -105,7 +105,7 @@ export default new Vuex.Store({
     },
     async deleteRel({ commit, dispatch }, ids) {
       let res = await api.delete(
-        "vaultkeeps/" + ids.vauldId + "/keeps/" + ids.keepId
+        "vaultkeeps/" + ids.vaultId + "/keeps/" + ids.keepId
       );
     }
   }
