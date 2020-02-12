@@ -102,6 +102,11 @@ export default new Vuex.Store({
     async makeKeepRel({ commit, dispatch }, body) {
       let res = await api.post("vaultkeeps", body);
       console.log("from store create", res.data);
+    },
+    async deleteRel({ commit, dispatch }, ids) {
+      let res = await api.delete(
+        "vaultkeeps/" + ids.vauldId + "/keeps/" + ids.keepId
+      );
     }
   }
 });
