@@ -97,6 +97,11 @@ export default new Vuex.Store({
       let res = await api.get("keeps/" + id);
       console.log("get keeps by id", res.data);
       commit("setActiveKeep", res.data);
+    },
+
+    async makeKeepRel({ commit, dispatch }, body) {
+      let res = await api.post("vaultkeeps", body);
+      console.log("from store create", res.data);
     }
   }
 });
