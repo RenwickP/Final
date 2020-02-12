@@ -1,4 +1,5 @@
-<template>
+<template>\
+<div class="container-fluid">
   <div class="home">
     <h1 class="text">Welcome Home Friend</h1>
     <div
@@ -47,6 +48,7 @@
         <button>Make Keep</button>
       </form>
     </div>
+  </div>
   </div>
 </template>
 <script>
