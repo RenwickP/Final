@@ -1,7 +1,6 @@
 <template>
   <div class="dashboard">
     <h1 class="text">WELCOME TO THE DASHBOARD</h1>
-    {{ publicKeeps }}
 
     <h3>Check Out Your Vaults!</h3>
     <div>
