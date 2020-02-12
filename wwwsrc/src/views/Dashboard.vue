@@ -50,6 +50,7 @@ export default {
     }
   },
   methods: {
+    name: "dashboard",
     getVk(id) {
       this.$store.dispatch("getVaultKeepByVaultId", id);
     },

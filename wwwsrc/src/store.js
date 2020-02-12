@@ -19,8 +19,8 @@ export default new Vuex.Store({
   state: {
     publicKeeps: [],
     vaults: [],
-    activeVaults: {}
-    // activeVaultKeeps: []
+    activeVaults: {},
+    activeVaultKeeps: []
   },
   mutations: {
     setKeeps(state, data) {
@@ -31,10 +31,10 @@ export default new Vuex.Store({
     },
     setActiveVault(state, data) {
       state.activeVaults = data;
+    },
+    activeVaultKeeps(state, data) {
+      state.activeVaultKeeps = data;
     }
-    // activeVaultKeeps(state, data) {
-    //   state.activeVaultKeeps = data;
-    // }
   },
   actions: {
     setBearer({}, bearer) {
@@ -81,12 +81,12 @@ export default new Vuex.Store({
       let res = await api.get("vaults/" + id);
       console.log("from store with get", res.data);
       commit("setActiveVault", res.data);
-    }
+    },
 
-    // async getVaultKeepByVaultId({ commit, dispatch }, VaultId) {
-    //   let res = await api.get("vaultkeeps/" + VaultId + "/keeps");
-    //   console.log("vk by Id from store", res.data);
-    //   commit("activeVaultKeeps", res.data);
-    // }
+    async getVaultKeepByVaultId({ commit, dispatch }, VaultId) {
+      let res = await api.get("vaultkeeps/" + VaultId + "/keeps");
+      console.log("vk by Id from store", res.data);
+      commit("activeVaultKeeps", res.data);
+    }
   }
 });
