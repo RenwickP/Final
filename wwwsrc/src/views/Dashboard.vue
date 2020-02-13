@@ -27,6 +27,7 @@
     <div v-for="myKeep in myKeeps" :key="myKeep.id">
       {{ myKeep.userId }}
       {{ myKeep.id }}
+      <button @click="deleteKeep(myKeep.id)">Delete Keep</button>
     </div>
   </div>
 </template>
@@ -73,6 +74,10 @@ export default {
     },
     deleteVault(id) {
       this.$store.dispatch("deleteVault", id);
+    },
+    deleteKeep(id) {
+      console.log("from home", id);
+      this.$store.dispatch("deleteKeep", id);
     }
   }
 };
