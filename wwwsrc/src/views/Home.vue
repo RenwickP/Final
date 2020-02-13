@@ -28,13 +28,8 @@
     <h3>Hey Look Its Create Time</h3>
     <div>
       <form @submit.prevent="makeKeep">
-        <input type="text" v-model="newKeep.name" placeholder="Name" />
-        <input type="text" v-model="newKeep.img" placeholder="Image Url" />
-        <input
-          type="text"
-          v-model="newKeep.description"
-          placeholder="Description"
-        />
+        
+        <p class="smallint"> Check Box To Make Private </p>
          <input
           type="checkbox"
           v-model="newKeep.IsPrivate"
@@ -44,8 +39,17 @@
       
           autocomplete="off"
         />
+        <input
+          type="text"
+          v-model="newKeep.description"
+          placeholder="Description"
+        />
+        <input type="text" v-model="newKeep.name" placeholder="Name" />
+        <input type="text" v-model="newKeep.img" placeholder="Image Url" />
+      
 
         <button>Make Keep</button>
+      <div class="spacing"></div>
       </form>
     </div>
   </div>
@@ -120,5 +124,11 @@ export default {
 .text {
   text-align: Center;
   color: green;
+},
+
+.smallint{
+  font-size: 8px;
 }
+
+
 </style>
