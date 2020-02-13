@@ -26,7 +26,7 @@
     <h3>Hey look at your keeps</h3>
     <div v-for="myKeep in myKeeps" :key="myKeep.id">
       <router-link :to="{ name: 'keep', params: { id: myKeep.id } }">
-        Keep
+        View
       </router-link>
       {{ myKeep.userId }}
       {{ myKeep.id }}

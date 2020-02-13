@@ -1,17 +1,18 @@
 <template>
-  <div class="newvault">
-    <h1>Hello to new vaults</h1>
-    <div v-for="keep in keeps" :key="keep.id">
-      {{ keep.name }}
-      <img :src="keep.img" />
-      <button @click="deleteKeep(keep.id)">Delete Keep</button>
+  <div class="container-fluid">
+    <div class="newvault">
+      <h1>Hello to new vaults</h1>
+
+      <div class="col-4" v-for="keep in keeps" :key="keep.id">
+        {{ keep.name }}
+        <img :src="keep.img" />
+        <button @click="deleteKeep(keep.id)">Delete Keep</button>
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  // Image works
-  //  <img :src="keep.img" />
   name: "newvault",
 
   mounted() {

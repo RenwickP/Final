@@ -2,7 +2,7 @@
   <div class="keep">
     <h1>Check out this keep</h1>
     <p>{{ keep.name }}</p>
-
+    <img :src="keep.img" />
     <h2>Test Data</h2>
     <div v-for="vault in vaults" :key="vault.id">
       <button @click="addKeep(vault.id)">
