@@ -1,5 +1,5 @@
-<template>\
-<div class="container-fluid">
+<template>
+
   <div class="home">
     <h1 class="text">Welcome Home Friend</h1>
     <div
@@ -49,7 +49,7 @@
       </form>
     </div>
   </div>
-  </div>
+
 </template>
 <script>
 //  <input type="text" v-model="newKeep." placeholder="" />

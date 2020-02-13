@@ -26,6 +26,7 @@ namespace Keepr.Repositories
     internal IEnumerable<Keep> Get()
     {
       string sql = "SELECT * FROM Keeps WHERE isPrivate = 0;";
+
       return _db.Query<Keep>(sql);
     }
 
@@ -46,7 +47,19 @@ namespace Keepr.Repositories
       string sql = "SELECT * FROM Keeps WHERE id=@Id";
       return _db.QueryFirstOrDefault<Keep>(sql, new { id });
     }
+    //////////////////////
 
+
+    internal IEnumerable<Keep> GetAllPrivateKeeps(string userId)
+    {
+      string sql = "SELECT * FROM Keeps WHERE userId =@UserId;";
+      return _db.Query<Keep>(sql, new { userId });
+    }
+
+
+
+
+    /////////////////////////
     internal void Delete(int id, string userId)
     {
       string sql = "DELETE FROM Keeps WHERE( id = @Id AND userId =@UserId)";

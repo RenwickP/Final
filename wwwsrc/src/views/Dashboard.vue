@@ -23,11 +23,17 @@
         <button>Create Vault</button>
       </form>
     </div>
+    <h3>Hey look at your keeps</h3>
+    <div v-for="myKeep in myKeeps" :key="myKeep.id">
+      {{ myKeep.userId }}
+      {{ myKeep.id }}
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+  name: "dashboard",
   data() {
     return {
       newVault: {
@@ -39,6 +45,7 @@ export default {
   mounted() {
     this.$store.dispatch("getKeeps");
     this.$store.dispatch("getVaults");
+    this.$store.dispatch("getMyKeeps");
   },
   computed: {
     publicKeeps() {
@@ -46,10 +53,13 @@ export default {
     },
     vaults() {
       return this.$store.state.vaults;
+    },
+    myKeeps() {
+      return this.$store.state.myKeeps;
     }
   },
+
   methods: {
-    name: "dashboard",
     getVk(id) {
       this.$store.dispatch("getVaultKeepByVaultId", id);
     },

@@ -21,7 +21,8 @@ export default new Vuex.Store({
     vaults: [],
     activeVaults: {},
     activeVaultKeeps: [],
-    activeKeep: {}
+    activeKeep: {},
+    myKeeps: []
   },
   mutations: {
     setKeeps(state, data) {
@@ -38,6 +39,9 @@ export default new Vuex.Store({
     },
     setActiveKeep(state, data) {
       state.activeKeep = data;
+    },
+    setMyKeeps(state, data) {
+      state.myKeeps = data;
     }
   },
   actions: {
@@ -107,6 +111,13 @@ export default new Vuex.Store({
       let res = await api.delete(
         "vaultkeeps/" + ids.vaultId + "/keeps/" + ids.keepId
       );
+      // dispatch("getVaultKeepByVaultId", ids.vaultId)
+    },
+
+    async getMyKeeps({ commit, dispatch }) {
+      let res = await api.get("tests");
+      console.log("from get my keeps", res.data);
+      commit("setMyKeeps", res.data);
     }
   }
 });

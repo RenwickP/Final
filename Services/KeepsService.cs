@@ -13,6 +13,7 @@ namespace Keepr.Services
     {
       _repo = repo;
     }
+
     public IEnumerable<Keep> Get()
     {
       return _repo.Get();
@@ -38,8 +39,20 @@ namespace Keepr.Services
       _repo.Delete(id, userId);
       return "Yay you deleted it";
     }
+    ///////////////////////
 
 
+
+
+    public IEnumerable<Keep> GetAllPrivateKeeps(string userId)
+    {
+      return _repo.GetAllPrivateKeeps(userId);
+    }
+
+
+
+
+    /////////////////////////
     internal Keep Edit(Keep update)
     {
       var existenceTest = _repo.GetById(update.Id);
