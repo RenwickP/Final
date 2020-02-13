@@ -1,9 +1,10 @@
 <template>
-
+<div class="container-fluid">
   <div class="home">
     <h1 class="text">Welcome Home Friend</h1>
+    <div class="row">
     <div
-      class="text-color"
+      class="text-color col-4"
       v-for="publickeep in publicKeeps"
       :key="publickeep.id"
     >
@@ -25,7 +26,9 @@
         Keep
       </router-link>
     </div>
-    <h3>Hey Look Its Create Time</h3>
+    </div>
+    <div class="row">
+    <h5>Hey Look Its Create Time</h5>
     <div>
       <form @submit.prevent="makeKeep">
         
@@ -51,6 +54,8 @@
         <button>Make Keep</button>
       <div class="spacing"></div>
       </form>
+    </div>
+    </div>
     </div>
   </div>
 
