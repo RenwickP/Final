@@ -30,21 +30,21 @@
       <form @submit.prevent="makeKeep">
         <input type="text" v-model="newKeep.name" placeholder="Name" />
         <input type="text" v-model="newKeep.img" placeholder="Image Url" />
-
-        <input
-          type="checkbox"
-          v-model="newKeep.IsPrivate"
-          name=""
-          id=""
-          checked
-          autocomplete="off"
-        />
-
         <input
           type="text"
           v-model="newKeep.description"
           placeholder="Description"
         />
+         <input
+          type="checkbox"
+          v-model="newKeep.IsPrivate"
+          name=""
+          id=""
+          checked
+      
+          autocomplete="off"
+        />
+
         <button>Make Keep</button>
       </form>
     </div>
@@ -56,6 +56,16 @@
 // <div class="btn-group" data-toggle="buttons">
 //           <label class="btn btn-primary active"
 
+//  <input
+//           type="checkbox"
+//           v-model="newKeep.IsPrivate"
+//           name=""
+//           id=""
+//           checked
+//           autocomplete="off"
+//         />
+
+
 export default {
   name: "home",
   data() {
@@ -64,7 +74,7 @@ export default {
         name: "",
         img: "",
         description: "",
-        IsPrivate: Boolean
+        IsPrivate: ""
       }
     };
   },
@@ -91,13 +101,15 @@ export default {
       this.$store.dispatch("deleteKeep", id);
     },
     makeKeep() {
+   
       let keep = { ...this.newKeep };
       this.$store.dispatch("makeKeep", keep);
+       console.log("create keep running", keep)
       this.newKeep = {
         name: "",
         img: "",
         description: "",
-        IsPrivate: Boolean
+        IsPrivate: ""
       };
     }
   }

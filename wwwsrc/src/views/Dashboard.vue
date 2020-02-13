@@ -27,6 +27,7 @@
     <div v-for="myKeep in myKeeps" :key="myKeep.id">
       {{ myKeep.userId }}
       {{ myKeep.id }}
+      {{ myKeep.name }}
       <button @click="deleteKeep(myKeep.id)">Delete Keep</button>
     </div>
   </div>
