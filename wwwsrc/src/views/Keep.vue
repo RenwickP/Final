@@ -18,15 +18,15 @@ export default {
   data() {
     return {
       newRel: {
-        keepId: "",
+        keepId: this.$route.params.id,
         vaultId: ""
       }
     };
   },
 
   mounted() {
-    this.$store.dispatch("getKeepsById", this.$route.params.id);
     this.$store.dispatch("getVaults");
+    this.$store.dispatch("getKeepsById", this.$route.params.id);
   },
 
   computed: {
@@ -47,6 +47,7 @@ export default {
         keepId: this.$route.params.id,
         vaultId: id
       };
+      console.log("from add keep", keep);
     }
   }
 };
