@@ -28,6 +28,7 @@
       {{ myKeep.userId }}
       {{ myKeep.id }}
       {{ myKeep.name }}
+      <img :src="myKeep.img" />
       <button @click="deleteKeep(myKeep.id)">Delete Keep</button>
     </div>
   </div>

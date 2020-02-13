@@ -74,7 +74,7 @@ export default {
         name: "",
         img: "",
         description: "",
-        IsPrivate: ""
+        IsPrivate: false
       }
     };
   },
@@ -109,7 +109,7 @@ export default {
         name: "",
         img: "",
         description: "",
-        IsPrivate: ""
+        // IsPrivate: ""
       };
     }
   }
