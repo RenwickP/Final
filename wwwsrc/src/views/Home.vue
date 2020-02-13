@@ -19,7 +19,6 @@
 
       {{ publickeep.name }}
       <button @click="deleteKeepz(publickeep.id)">Delete</button>
-      {{ publickeep.id }}
       <button>Views:{{ publickeep.Views }}</button>
       <button>Shares:{{ publickeep.Shares }}</button>
       <router-link :to="{ name: 'keep', params: { id: publickeep.id } }">

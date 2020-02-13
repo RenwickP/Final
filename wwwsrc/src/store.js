@@ -62,6 +62,7 @@ export default new Vuex.Store({
       let res = await api.delete("keeps/" + id);
       console.log("from delete", id);
       dispatch("getKeeps");
+      dispatch("getMyKeeps");
       console.log("reading stuff", res.data);
     },
     async makeKeep({ commit, dispatch }, keep) {
