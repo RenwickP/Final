@@ -1,14 +1,22 @@
 <template>
-  <div class="keep">
-    <h1>Check out this keep</h1>
-    <p>{{ keep.name }}</p>
-    <img :src="keep.img" />
-    <h2>Test Data</h2>
-    <div v-for="vault in vaults" :key="vault.id">
-      <button @click="addKeep(vault.id)">
-        Add Keep to a vault!
-      </button>
-      {{ vault.name }}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="keep col-12">
+        <h1>Check out this keep</h1>
+        <p>{{ keep.name }}</p>
+        <img :src="keep.img" />
+        <h2>Test Data</h2>
+        <div class="row">
+          <div class="col-2">
+            <div v-for="vault in vaults" :key="vault.id">
+              <button @click="addKeep(vault.id)">
+                Add Keep to a vault!
+              </button>
+              {{ vault.name }}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
