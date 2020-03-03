@@ -2,32 +2,7 @@
 <div class="container-fluid">
   <div class="home">
     <h1 class="text">Welcome Home Friend</h1>
-    <div class="row">
-    <div
-      class="text-color col-4"
-      v-for="publickeep in publicKeeps"
-      :key="publickeep.id"
-    >
-      <div class="card" style="width: 18rem;">
-        <img :src="publickeep.img" />
-        <div class="card-body">
-          <h5 {{ publickeep.name }}</h5>
-          <p class="card-text">{{ publickeep.description }}</p>
-          <a href="#" class="btn btn-primary">random txt</a>
-        </div>
-      </div>
-
-      {{ publickeep.name }}
-      <button @click="deleteKeepz(publickeep.id)">Delete</button>
-      <button>Views:{{ publickeep.Views }}</button>
-      <button>Shares:{{ publickeep.Shares }}</button>
-      <router-link :to="{ name: 'keep', params: { id: publickeep.id } }">
-        Keep
-      </router-link>
-    </div>
-    </div>
-    <div class="row">
-    <h5>Hey Look Its Create Time</h5>
+       <h5>Hey Look Its Create Time</h5>
     <div>
       <form @submit.prevent="makeKeep">
         
@@ -54,6 +29,33 @@
       <div class="spacing"></div>
       </form>
     </div>
+    
+    <div class="row">
+    <div
+      class="text-color col-4"
+      v-for="publickeep in publicKeeps"
+      :key="publickeep.id"
+    >
+      <div class="card" style="width: 18rem;">
+        <img :src="publickeep.img" />
+        <div class="card-body">
+          <h5 {{ publickeep.name }}</h5>
+          <p class="card-text">{{ publickeep.description }}</p>
+          <a href="#" class="btn btn-primary">random txt</a>
+        </div>
+      </div>
+
+      {{ publickeep.name }}
+      <button @click="deleteKeepz(publickeep.id)">Delete</button>
+      <button>Views:{{ publickeep.Views }}</button>
+      <button>Shares:{{ publickeep.Shares }}</button>
+      <router-link :to="{ name: 'keep', params: { id: publickeep.id } }">
+        Keep
+      </router-link>
+    </div>
+    </div>
+   
+ 
     </div>
     </div>
   </div>
@@ -134,5 +136,5 @@ export default {
   font-size: 8px;
 }
 
-
+  
 </style>
