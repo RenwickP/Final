@@ -1,5 +1,5 @@
 <template>
-<div class="container-fluid">
+<div class="container-fluid bigbox">
   <div class="home">
     <h1 class="text">Welcome Home Friend</h1>
        <h5>Hey Look Its Create Time</h5>
@@ -136,5 +136,9 @@ export default {
   font-size: 8px;
 }
 
+.bigbox {
+ 
+
+}
   
 </style>
